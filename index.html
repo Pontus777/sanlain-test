@@ -1,0 +1,1628 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanlain — премиальный стример мобильных игр</title>
+  <meta name="description" content="Sanlain — премиальный бренд стримера мобильных игр: стиль, характер, дисциплина, энергия и атмосфера уровня люкс." />
+  <style>
+    :root{
+      --bg:#070707;
+      --bg-soft:#0f0f10;
+      --panel:#111112;
+      --panel-2:#161617;
+      --line:rgba(214,174,87,.16);
+      --gold:#d1a14a;
+      --gold-2:#f0c56f;
+      --gold-deep:#8f6420;
+      --text:#f6f2ea;
+      --muted:#b7ab97;
+      --muted-2:#928571;
+      --shadow:0 20px 60px rgba(0,0,0,.45);
+      --radius:24px;
+      --radius-sm:18px;
+      --container:min(1120px, calc(100% - 28px));
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(208,161,74,.13), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(240,197,111,.08), transparent 25%),
+        radial-gradient(circle at 50% 65%, rgba(143,100,32,.09), transparent 36%),
+        linear-gradient(180deg, #050505 0%, #090909 28%, #0b0b0c 55%, #070707 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:34px 34px;
+      mask-image:radial-gradient(circle at center, black 45%, transparent 90%);
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:-20%;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,.035) 0, transparent 55%),
+        radial-gradient(circle at 30% 20%, rgba(209,161,74,.06), transparent 18%),
+        radial-gradient(circle at 70% 80%, rgba(240,197,111,.05), transparent 20%);
+      filter:blur(28px);
+      opacity:.8;
+      z-index:-1;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:var(--container);
+      margin:0 auto;
+    }
+
+    .section{
+      position:relative;
+      padding:72px 0;
+    }
+
+    .section-title{
+      font-size:clamp(28px, 6vw, 52px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      margin:0 0 14px;
+    }
+
+    .section-subtitle{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--gold-2);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:32px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+      box-shadow:0 0 14px rgba(240,197,111,.3);
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(14px);
+      background:linear-gradient(180deg, rgba(8,8,8,.82), rgba(8,8,8,.52));
+      border-bottom:1px solid rgba(255,255,255,.04);
+    }
+
+    .header-inner{
+      width:var(--container);
+      margin:0 auto;
+      padding:12px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(240,197,111,.65), transparent 25%),
+        linear-gradient(135deg, #151515 0%, #090909 100%);
+      border:1px solid rgba(240,197,111,.22);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        0 10px 24px rgba(0,0,0,.36),
+        0 0 24px rgba(209,161,74,.14);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      background:linear-gradient(180deg, var(--gold-2), var(--gold-deep));
+      box-shadow:0 0 18px rgba(240,197,111,.22);
+    }
+
+    .brand-mark::before{
+      width:18px;
+      height:3px;
+      top:11px;
+      left:11px;
+      transform:rotate(25deg);
+    }
+
+    .brand-mark::after{
+      width:20px;
+      height:3px;
+      top:24px;
+      left:10px;
+      transform:rotate(-25deg);
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-name{
+      margin:0;
+      font-weight:800;
+      font-size:17px;
+      letter-spacing:.02em;
+    }
+
+    .brand-caption{
+      margin:2px 0 0;
+      color:var(--muted-2);
+      font-size:11px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav{
+      display:flex;
+      gap:8px;
+      overflow:auto;
+      scrollbar-width:none;
+    }
+    .nav::-webkit-scrollbar{display:none}
+
+    .nav a{
+      white-space:nowrap;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(240,197,111,.12);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:13px;
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      color:var(--text);
+      border-color:rgba(240,197,111,.28);
+      background:rgba(240,197,111,.06);
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      padding:34px 0 42px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .hero-main{
+      position:relative;
+      padding:26px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(20,20,21,.96), rgba(11,11,12,.92)),
+        linear-gradient(135deg, rgba(240,197,111,.08), transparent 35%);
+      border:1px solid rgba(240,197,111,.14);
+      box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+
+    .hero-main::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(240,197,111,.16), transparent 20%),
+        radial-gradient(circle at 100% 0%, rgba(143,100,32,.14), transparent 25%),
+        linear-gradient(120deg, transparent, rgba(255,255,255,.02), transparent 55%);
+      opacity:.9;
+    }
+
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      right:-60px;
+      top:-40px;
+      width:210px;
+      height:210px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,197,111,.18), rgba(240,197,111,0) 68%);
+      filter:blur(12px);
+      pointer-events:none;
+    }
+
+    .hero-title{
+      margin:0 0 14px;
+      font-size:clamp(40px, 11vw, 88px);
+      line-height:.95;
+      letter-spacing:-.05em;
+      max-width:720px;
+    }
+
+    .hero-title span{
+      display:block;
+      color:transparent;
+      background:linear-gradient(180deg, #fff7e4 0%, var(--gold-2) 40%, #b07d2e 100%);
+      background-clip:text;
+      -webkit-background-clip:text;
+      text-shadow:0 0 30px rgba(240,197,111,.08);
+    }
+
+    .hero-lead{
+      margin:0;
+      max-width:720px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 18px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:14px;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+      cursor:pointer;
+      border:none;
+    }
+
+    .btn:active{transform:scale(.98)}
+
+    .btn-primary{
+      color:#110d08;
+      background:linear-gradient(180deg, #f0c56f 0%, #d9a74d 100%);
+      box-shadow:0 14px 28px rgba(209,161,74,.22), inset 0 1px 0 rgba(255,255,255,.35);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 34px rgba(209,161,74,.28), inset 0 1px 0 rgba(255,255,255,.35);
+    }
+
+    .btn-secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(240,197,111,.18);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-2px);
+      border-color:rgba(240,197,111,.32);
+      background:rgba(240,197,111,.08);
+    }
+
+    .hero-side{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+
+    .glass-card,
+    .info-card,
+    .feature-card,
+    .adv-card,
+    .gallery-card,
+    .cta-box,
+    .panel{
+      position:relative;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(19,19,20,.92), rgba(12,12,13,.9));
+      border:1px solid rgba(240,197,111,.12);
+      box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.02);
+      overflow:hidden;
+    }
+
+    .glass-card::before,
+    .info-card::before,
+    .feature-card::before,
+    .adv-card::before,
+    .gallery-card::before,
+    .cta-box::before,
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(125deg, rgba(255,255,255,.035), transparent 28%, transparent 72%, rgba(240,197,111,.02));
+    }
+
+    .hero-stack{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .info-card{
+      padding:18px;
+      min-height:132px;
+    }
+
+    .info-label{
+      color:var(--muted-2);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      margin-bottom:10px;
+    }
+
+    .info-value{
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:-.03em;
+      margin:0 0 8px;
+    }
+
+    .info-text{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .hero-panel{
+      padding:20px;
+      min-height:230px;
+      display:grid;
+      align-items:end;
+      background:
+        radial-gradient(circle at 78% 15%, rgba(240,197,111,.16), transparent 18%),
+        radial-gradient(circle at 20% 85%, rgba(143,100,32,.18), transparent 26%),
+        linear-gradient(180deg, rgba(18,18,19,.96), rgba(10,10,11,.92));
+    }
+
+    .hero-panel-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:14px;
+      min-height:100%;
+    }
+
+    .signal{
+      height:100%;
+      min-height:180px;
+      border-radius:22px;
+      padding:16px;
+      border:1px solid rgba(240,197,111,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+        linear-gradient(145deg, rgba(240,197,111,.05), transparent 42%);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .signal-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .signal-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold-2);
+      font-size:12px;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(240,197,111,.08);
+      border:1px solid rgba(240,197,111,.16);
+    }
+
+    .signal-pill::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold-2);
+      box-shadow:0 0 10px rgba(240,197,111,.75);
+    }
+
+    .signal-bars{
+      display:flex;
+      align-items:flex-end;
+      gap:8px;
+      height:88px;
+    }
+
+    .signal-bars span{
+      flex:1;
+      border-radius:999px;
+      background:linear-gradient(180deg, var(--gold-2), rgba(209,161,74,.15));
+      box-shadow:0 0 18px rgba(240,197,111,.18);
+      animation:pulse 2.4s infinite ease-in-out;
+      transform-origin:bottom;
+    }
+
+    .signal-bars span:nth-child(1){height:30%; animation-delay:.1s}
+    .signal-bars span:nth-child(2){height:56%; animation-delay:.3s}
+    .signal-bars span:nth-child(3){height:82%; animation-delay:.5s}
+    .signal-bars span:nth-child(4){height:48%; animation-delay:.7s}
+    .signal-bars span:nth-child(5){height:70%; animation-delay:.9s}
+    .signal-bars span:nth-child(6){height:38%; animation-delay:1.1s}
+
+    @keyframes pulse{
+      0%,100%{transform:scaleY(1); opacity:.88}
+      50%{transform:scaleY(1.08); opacity:1}
+    }
+
+    .signal-copy{
+      margin-top:14px;
+    }
+
+    .signal-copy h3{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-.03em;
+    }
+
+    .signal-copy p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .focus-grid{
+      display:grid;
+      gap:10px;
+    }
+
+    .focus-box{
+      border-radius:22px;
+      padding:14px;
+      border:1px solid rgba(240,197,111,.1);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      min-height:84px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .focus-box strong{
+      font-size:12px;
+      color:var(--muted-2);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+
+    .focus-box span{
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:-.03em;
+      color:var(--text);
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .two-col{
+      grid-template-columns:1fr;
+    }
+
+    .cards-grid{
+      grid-template-columns:1fr;
+    }
+
+    .feature-card,
+    .adv-card{
+      padding:20px;
+      transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+
+    .feature-card:hover,
+    .adv-card:hover,
+    .gallery-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(240,197,111,.26);
+      box-shadow:0 24px 54px rgba(0,0,0,.42), 0 0 0 1px rgba(240,197,111,.06) inset;
+    }
+
+    .card-icon{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      margin-bottom:16px;
+      background:linear-gradient(180deg, rgba(240,197,111,.12), rgba(143,100,32,.08));
+      border:1px solid rgba(240,197,111,.16);
+      color:var(--gold-2);
+      font-weight:900;
+      box-shadow:0 8px 18px rgba(0,0,0,.24);
+    }
+
+    .feature-card h3,
+    .adv-card h3,
+    .gallery-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      letter-spacing:-.03em;
+    }
+
+    .feature-card p,
+    .adv-card p,
+    .gallery-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.72;
+      font-size:14px;
+    }
+
+    .about-box{
+      padding:24px;
+    }
+
+    .about-box p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:15px;
+    }
+
+    .about-box strong{
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .metric-strip{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .metric{
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(240,197,111,.1);
+    }
+
+    .metric b{
+      display:block;
+      font-size:21px;
+      letter-spacing:-.03em;
+      margin-bottom:6px;
+      color:var(--gold-2);
+    }
+
+    .metric span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .streams-layout{
+      display:grid;
+      gap:16px;
+    }
+
+    .streams-copy{
+      padding:24px;
+    }
+
+    .streams-copy p{
+      margin:0 0 16px;
+      color:var(--muted);
+      line-height:1.82;
+      font-size:15px;
+    }
+
+    .bullet-list{
+      display:grid;
+      gap:10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .bullet-list li{
+      position:relative;
+      padding-left:26px;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .bullet-list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.55em;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:radial-gradient(circle, var(--gold-2), var(--gold-deep));
+      box-shadow:0 0 14px rgba(240,197,111,.28);
+    }
+
+    .streams-visual{
+      padding:18px;
+      min-height:360px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(240,197,111,.08), transparent 18%),
+        linear-gradient(180deg, rgba(17,17,18,.96), rgba(9,9,10,.92));
+    }
+
+    .feed{
+      display:grid;
+      gap:12px;
+      height:100%;
+    }
+
+    .feed-main{
+      min-height:210px;
+      border-radius:24px;
+      padding:18px;
+      border:1px solid rgba(240,197,111,.12);
+      background:
+        radial-gradient(circle at 80% 12%, rgba(240,197,111,.16), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.008));
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .feed-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .feed-mini{
+      border-radius:20px;
+      padding:16px;
+      border:1px solid rgba(240,197,111,.1);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      min-height:108px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .feed-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:max-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(240,197,111,.08);
+      border:1px solid rgba(240,197,111,.14);
+      color:var(--gold-2);
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .feed-main h3,
+    .feed-mini h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.03em;
+    }
+
+    .feed-main p,
+    .feed-mini p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .premium-wrap{
+      display:grid;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .premium-copy{
+      padding:24px;
+    }
+
+    .premium-copy p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.85;
+    }
+
+    .premium-quote{
+      margin-top:16px;
+      padding:18px;
+      border-radius:20px;
+      border:1px solid rgba(240,197,111,.12);
+      background:rgba(240,197,111,.05);
+      color:var(--text);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .premium-stage{
+      padding:18px;
+      min-height:360px;
+      display:grid;
+      gap:14px;
+      background:
+        radial-gradient(circle at 70% 16%, rgba(240,197,111,.12), transparent 18%),
+        radial-gradient(circle at 20% 80%, rgba(143,100,32,.18), transparent 24%),
+        linear-gradient(180deg, rgba(15,15,16,.96), rgba(8,8,9,.92));
+    }
+
+    .stage-top{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:14px;
+    }
+
+    .stage-display{
+      min-height:192px;
+      border-radius:24px;
+      padding:18px;
+      border:1px solid rgba(240,197,111,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+        radial-gradient(circle at 74% 24%, rgba(240,197,111,.2), transparent 18%);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+
+    .stage-display h3{
+      margin:0 0 8px;
+      font-size:22px;
+      letter-spacing:-.03em;
+    }
+
+    .stage-display p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      max-width:320px;
+    }
+
+    .stage-side{
+      display:grid;
+      gap:14px;
+    }
+
+    .stage-chip{
+      border-radius:20px;
+      border:1px solid rgba(240,197,111,.1);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      padding:16px;
+      min-height:89px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .stage-chip small{
+      color:var(--muted-2);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .stage-chip b{
+      font-size:21px;
+      letter-spacing:-.03em;
+      color:var(--gold-2);
+    }
+
+    .stage-bottom{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+
+    .stage-bar{
+      min-height:116px;
+      border-radius:20px;
+      padding:14px;
+      border:1px solid rgba(240,197,111,.1);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .stage-bar::before{
+      content:"";
+      position:absolute;
+      left:14px;
+      right:14px;
+      bottom:14px;
+      height:calc(var(--fill, 60) * 1%);
+      border-radius:16px 16px 12px 12px;
+      background:linear-gradient(180deg, rgba(240,197,111,.95), rgba(143,100,32,.25));
+      box-shadow:0 0 24px rgba(240,197,111,.18);
+      opacity:.86;
+    }
+
+    .stage-bar span{
+      position:relative;
+      z-index:1;
+      color:#140f08;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      mix-blend-mode:screen;
+    }
+
+    .advantages-grid{
+      grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:1fr;
+    }
+
+    .gallery-card{
+      padding:18px;
+      min-height:220px;
+      transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:
+        linear-gradient(180deg, rgba(12,12,13,.38), rgba(12,12,13,.96)),
+        radial-gradient(circle at 76% 14%, rgba(240,197,111,.16), transparent 16%),
+        radial-gradient(circle at 20% 80%, rgba(143,100,32,.18), transparent 20%);
+    }
+
+    .gallery-card:nth-child(1){
+      background:
+        linear-gradient(180deg, rgba(11,11,12,.16), rgba(11,11,12,.95)),
+        radial-gradient(circle at 22% 18%, rgba(240,197,111,.2), transparent 15%),
+        linear-gradient(135deg, #151515, #0d0d0e 55%, #080808);
+    }
+
+    .gallery-card:nth-child(2){
+      background:
+        linear-gradient(180deg, rgba(11,11,12,.18), rgba(11,11,12,.95)),
+        radial-gradient(circle at 78% 14%, rgba(240,197,111,.16), transparent 16%),
+        linear-gradient(145deg, #161616, #0b0b0c 55%, #080808);
+    }
+
+    .gallery-card:nth-child(3){
+      background:
+        linear-gradient(180deg, rgba(11,11,12,.18), rgba(11,11,12,.95)),
+        radial-gradient(circle at 50% 18%, rgba(240,197,111,.14), transparent 20%),
+        linear-gradient(145deg, #131313, #0b0b0c 55%, #070707);
+    }
+
+    .gallery-card:nth-child(4){
+      background:
+        linear-gradient(180deg, rgba(11,11,12,.18), rgba(11,11,12,.95)),
+        radial-gradient(circle at 70% 75%, rgba(143,100,32,.18), transparent 22%),
+        linear-gradient(145deg, #171717, #0c0c0d 55%, #080808);
+    }
+
+    .gallery-label{
+      display:inline-flex;
+      width:max-content;
+      margin-bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--gold-2);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      background:rgba(240,197,111,.08);
+      border:1px solid rgba(240,197,111,.14);
+    }
+
+    .cta-box{
+      padding:28px 22px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(240,197,111,.16), transparent 30%),
+        linear-gradient(180deg, rgba(18,18,19,.96), rgba(10,10,11,.94));
+    }
+
+    .cta-box h2{
+      margin:0 0 12px;
+      font-size:clamp(30px, 7vw, 58px);
+      line-height:1.02;
+      letter-spacing:-.04em;
+    }
+
+    .cta-box p{
+      margin:0 auto;
+      max-width:760px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .cta-actions{
+      margin-top:22px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .footer{
+      padding:22px 0 34px;
+    }
+
+    .footer-box{
+      padding:22px;
+      display:grid;
+      gap:18px;
+    }
+
+    .footer-top{
+      display:grid;
+      gap:18px;
+    }
+
+    .footer-brand h3{
+      margin:0 0 8px;
+      font-size:26px;
+      letter-spacing:-.04em;
+    }
+
+    .footer-brand p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+      max-width:580px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .footer-links a{
+      min-height:46px;
+      padding:0 16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      border:1px solid rgba(240,197,111,.14);
+      background:rgba(255,255,255,.02);
+      color:var(--text);
+      font-size:14px;
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover{
+      transform:translateY(-2px);
+      border-color:rgba(240,197,111,.28);
+      background:rgba(240,197,111,.08);
+    }
+
+    .footer-bottom{
+      padding-top:14px;
+      border-top:1px solid rgba(240,197,111,.08);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      color:var(--muted-2);
+      font-size:13px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .scroll-dot{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      z-index:30;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(240,197,111,.16);
+      background:linear-gradient(180deg, rgba(19,19,20,.92), rgba(12,12,13,.92));
+      color:var(--gold-2);
+      box-shadow:0 14px 30px rgba(0,0,0,.32);
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(12px);
+      transition:.3s ease;
+    }
+
+    .scroll-dot.show{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
+    }
+
+    .scroll-dot:hover{
+      border-color:rgba(240,197,111,.32);
+      background:rgba(240,197,111,.08);
+    }
+
+    @media (min-width: 740px){
+      .section{padding:92px 0}
+      .hero{padding:42px 0 52px}
+      .hero-grid{grid-template-columns:1.15fr .85fr}
+      .two-col{grid-template-columns:1.15fr .85fr}
+      .cards-grid{grid-template-columns:repeat(2, 1fr)}
+      .advantages-grid{grid-template-columns:repeat(2, 1fr)}
+      .gallery-grid{grid-template-columns:repeat(2, 1fr)}
+      .streams-layout{grid-template-columns:1fr 1fr}
+      .premium-wrap{grid-template-columns:1fr 1fr}
+      .footer-top{grid-template-columns:1fr auto; align-items:end}
+    }
+
+    @media (min-width: 980px){
+      .cards-grid{grid-template-columns:repeat(3, 1fr)}
+      .advantages-grid{grid-template-columns:repeat(3, 1fr)}
+      .gallery-grid{grid-template-columns:1.2fr .8fr .8fr 1.2fr}
+      .gallery-card:nth-child(1){min-height:300px}
+      .gallery-card:nth-child(4){min-height:300px}
+      .cta-box{padding:42px 34px}
+      .footer-bottom{flex-direction:row; justify-content:space-between; align-items:center}
+    }
+
+    @media (max-width: 420px){
+      .hero-main{padding:22px}
+      .hero-title{font-size:38px}
+      .hero-actions .btn{width:100%}
+      .metric-strip{grid-template-columns:1fr}
+      .hero-stack{grid-template-columns:1fr}
+      .feed-row{grid-template-columns:1fr}
+      .stage-top{grid-template-columns:1fr}
+      .stage-bottom{grid-template-columns:1fr}
+      .nav a{padding:10px 12px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto}
+      .reveal,
+      .signal-bars span,
+      .btn,
+      .feature-card,
+      .adv-card,
+      .gallery-card{transition:none !important; animation:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="brand" aria-label="Sanlain">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <p class="brand-name">Sanlain</p>
+          <p class="brand-caption">премиальный стример мобильных игр</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Навигация по странице">
+        <a href="#about">О бренде</a>
+        <a href="#philosophy">Философия</a>
+        <a href="#content">Контент</a>
+        <a href="#vibe">Атмосфера</a>
+        <a href="#gallery">Визуал</a>
+        <a href="#cta">Войти</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-main reveal">
+            <div class="eyebrow">Премиальный игровой образ</div>
+            <h1 class="hero-title">Больше чем стрим.<span>Это стиль Sanlain.</span></h1>
+            <p class="hero-lead">
+              Мобильные игры, сильная подача, уверенная энергия и темная люксовая атмосфера.
+              Sanlain — это харизма в кадре, дисциплина в игре, характер в каждом эфире и бренд,
+              который запоминается с первого взгляда.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#content">Смотреть стримы</a>
+              <a class="btn btn-secondary" href="#cta">Следить за контентом</a>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="hero-panel panel reveal">
+              <div class="hero-panel-grid">
+                <div class="signal">
+                  <div class="signal-top">
+                    <div class="signal-pill">В эфире стиль</div>
+                  </div>
+                  <div class="signal-bars" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="signal-copy">
+                    <h3>Контроль, темп, давление</h3>
+                    <p>Каждый эфир строится на ритме, реакции и уверенной подаче без лишнего шума.</p>
+                  </div>
+                </div>
+                <div class="focus-grid">
+                  <div class="focus-box">
+                    <strong>Режим</strong>
+                    <span>Фокус</span>
+                  </div>
+                  <div class="focus-box">
+                    <strong>Статус</strong>
+                    <span>Характер</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-stack reveal">
+              <div class="info-card">
+                <div class="info-label">Подход</div>
+                <p class="info-value">Подача с весом</p>
+                <p class="info-text">Не просто играть, а создавать ощущение силы, вкуса и уровня.</p>
+              </div>
+              <div class="info-card">
+                <div class="info-label">Образ</div>
+                <p class="info-value">Темный люкс</p>
+                <p class="info-text">Черный, графит, золото и атмосфера премиального контроля.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="grid two-col">
+          <div class="reveal">
+            <div class="eyebrow">О бренде</div>
+            <h2 class="section-title">Sanlain — личный бренд с сильной подачей</h2>
+            <p class="section-subtitle">
+              Это образ уверенного мобильного стримера, где стиль и дисциплина работают так же мощно,
+              как реакция и игровое мышление.
+            </p>
+          </div>
+
+          <div class="about-box glass-card reveal">
+            <p>
+              <strong>Sanlain</strong> — это <strong>стример мобильных игр</strong> и
+              <strong>харизматичный автор</strong>, который выстраивает вокруг себя не обычный игровой контент,
+              а цельный <strong>премиальный цифровой образ</strong>. Здесь важны не только матчи и эмоции, но и
+              ощущение уровня: уверенность, концентрация, выдержка, стиль, контроль и сильный личный бренд.
+            </p>
+
+            <div class="metric-strip">
+              <div class="metric">
+                <b>Стиль</b>
+                <span>Визуал, подача и атмосфера работают как единое целое.</span>
+              </div>
+              <div class="metric">
+                <b>Характер</b>
+                <span>Контент строится на уверенности, темпе и внутренней силе.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="philosophy">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Философия бренда</div>
+          <h2 class="section-title">Не просто играть. Держать уровень.</h2>
+          <p class="section-subtitle">
+            Sanlain строится на нескольких принципах, которые формируют узнаваемую энергетику бренда и задают его тон.
+          </p>
+        </div>
+
+        <div class="grid cards-grid" style="margin-top:24px;">
+          <article class="feature-card reveal">
+            <div class="card-icon">01</div>
+            <h3>Стиль</h3>
+            <p>Каждая деталь должна выглядеть дорого: от визуала и подачи до атмосферы самого эфира.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="card-icon">02</div>
+            <h3>Дисциплина</h3>
+            <p>Сильный контент держится не на случайности, а на ритме, самообладании и стабильности.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="card-icon">03</div>
+            <h3>Реакция</h3>
+            <p>Мобильный геймплей любит скорость мышления. Решения принимаются точно и без лишнего шума.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="card-icon">04</div>
+            <h3>Характер</h3>
+            <p>Уровень чувствуется в поведении. Уверенность делает стрим заметным, а образ — сильным.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="card-icon">05</div>
+            <h3>Энергия</h3>
+            <p>Контент должен заряжать: эмоцией, напряжением, темпом и ощущением живого присутствия.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="card-icon">06</div>
+            <h3>Концентрация</h3>
+            <p>Фокус — это основа подачи. Когда внимание собрано, даже тишина на экране ощущается мощно.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="content">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Стримы и контент</div>
+          <h2 class="section-title">Эфиры, где эмоция встречается с контролем</h2>
+          <p class="section-subtitle">
+            Яркие матчи, соревновательная атмосфера, живое общение и регулярный поток контента без дешевой суеты.
+          </p>
+        </div>
+
+        <div class="streams-layout" style="margin-top:24px;">
+          <div class="streams-copy glass-card reveal">
+            <p>
+              Контент Sanlain — это <strong>стримы мобильных игр</strong> с характером. Здесь есть напряжение прямого эфира,
+              честные эмоции, плотная игровая динамика и ощущение, что в кадре присутствует не просто игрок,
+              а человек со своей энергетикой и уровнем.
+            </p>
+            <ul class="bullet-list">
+              <li>Яркие матчи и высокий темп принятия решений</li>
+              <li>Живое общение и сильное присутствие в эфире</li>
+              <li>Регулярный контент без потери качества и атмосферы</li>
+              <li>Соревновательный настрой и эмоции, которые цепляют</li>
+              <li>Подача, в которой визуал и характер работают вместе</li>
+            </ul>
+          </div>
+
+          <div class="streams-visual panel reveal">
+            <div class="feed">
+              <div class="feed-main">
+                <div class="feed-tag">Прямой эфир</div>
+                <div>
+                  <h3>Матч под давлением</h3>
+                  <p>Когда игра ускоряется, подача становится еще мощнее: хладнокровие, темп и чувство момента.</p>
+                </div>
+              </div>
+
+              <div class="feed-row">
+                <div class="feed-mini">
+                  <h3>Эмоция</h3>
+                  <p>Живой кадр, настоящий отклик и плотная связь с аудиторией.</p>
+                </div>
+                <div class="feed-mini">
+                  <h3>Ритм</h3>
+                  <p>Регулярный выход контента без провалов в уровне и подаче.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vibe">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Премиальная атмосфера</div>
+          <h2 class="section-title">Темный люкс. Сила подачи. Концентрация в каждом кадре.</h2>
+          <p class="section-subtitle">
+            Атмосфера Sanlain строится на ощущении внутреннего контроля, визуальной строгости и дорогой подаче без показной перегрузки.
+          </p>
+        </div>
+
+        <div class="premium-wrap" style="margin-top:24px;">
+          <div class="premium-copy glass-card reveal">
+            <p>
+              Это не просто темный дизайн. Это ощущение <strong>собранности</strong>, <strong>энергии</strong> и
+              <strong>уверенного уровня</strong>. Черный и графит задают глубину, золото подчеркивает статус,
+              а весь визуальный ритм работает на главное — сделать бренд Sanlain запоминающимся и сильным.
+            </p>
+            <p>
+              Здесь нет случайных деталей. Каждый блок, акцент и движение поддерживают один образ:
+              <strong>контроль, сила, подача, характер</strong>.
+            </p>
+            <div class="premium-quote">
+              Sanlain — это цифровая атмосфера, где игра становится сценой, а подача превращается в стиль.
+            </div>
+          </div>
+
+          <div class="premium-stage panel reveal">
+            <div class="stage-top">
+              <div class="stage-display">
+                <h3>Темп без хаоса</h3>
+                <p>Мощь бренда чувствуется в спокойствии, концентрации и четкой визуальной линии.</p>
+              </div>
+              <div class="stage-side">
+                <div class="stage-chip">
+                  <small>Энергия</small>
+                  <b>Сдержанная</b>
+                </div>
+                <div class="stage-chip">
+                  <small>Подача</small>
+                  <b>Точная</b>
+                </div>
+              </div>
+            </div>
+            <div class="stage-bottom">
+              <div class="stage-bar" style="--fill:78;">
+                <span>Фокус</span>
+              </div>
+              <div class="stage-bar" style="--fill:64;">
+                <span>Сила</span>
+              </div>
+              <div class="stage-bar" style="--fill:84;">
+                <span>Стиль</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="advantages">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Преимущества</div>
+          <h2 class="section-title">Почему Sanlain ощущается по-другому</h2>
+          <p class="section-subtitle">
+            Бренд держится не на одном элементе, а на сочетании визуала, характера, энергии и стабильной подачи.
+          </p>
+        </div>
+
+        <div class="grid advantages-grid" style="margin-top:24px;">
+          <article class="adv-card reveal">
+            <div class="card-icon">A</div>
+            <h3>Харизматичная подача</h3>
+            <p>Кадр держится на присутствии. Эфир не теряется в потоке — он выделяется.</p>
+          </article>
+
+          <article class="adv-card reveal">
+            <div class="card-icon">B</div>
+            <h3>Стильный визуал</h3>
+            <p>Черный и темное золото создают образ, который выглядит дорого и запоминается сразу.</p>
+          </article>
+
+          <article class="adv-card reveal">
+            <div class="card-icon">C</div>
+            <h3>Атмосфера премиум-уровня</h3>
+            <p>Не яркая перегрузка, а уверенная эстетика с глубиной, светом и контролем.</p>
+          </article>
+
+          <article class="adv-card reveal">
+            <div class="card-icon">D</div>
+            <h3>Энергия и эмоции</h3>
+            <p>Контент не холодный. В нем есть давление момента, азарт и живое напряжение эфира.</p>
+          </article>
+
+          <article class="adv-card reveal">
+            <div class="card-icon">E</div>
+            <h3>Сильный личный бренд</h3>
+            <p>Sanlain — это не шаблонный стример, а образ с четкой идентичностью и весом.</p>
+          </article>
+
+          <article class="adv-card reveal">
+            <div class="card-icon">F</div>
+            <h3>Контент с характером</h3>
+            <p>Каждая публикация продолжает единый стиль: мощно, современно и без лишней суеты.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Визуальное настроение</div>
+          <h2 class="section-title">Черное золото, игровой ритм и мужская атмосфера</h2>
+          <p class="section-subtitle">
+            Визуальный образ Sanlain вдохновлен премиальным сетапом, темной эстетикой и дорогим ощущением цифрового присутствия.
+          </p>
+        </div>
+
+        <div class="gallery-grid" style="margin-top:24px;">
+          <article class="gallery-card reveal">
+            <span class="gallery-label">Сетап</span>
+            <h3>Темный кадр с золотым акцентом</h3>
+            <p>Глубокий черный фон, металлические отблески и строгая подача создают эффект дорогого пространства.</p>
+          </article>
+
+          <article class="gallery-card reveal">
+            <span class="gallery-label">Бренд</span>
+            <h3>Подача, которая выглядит уверенно</h3>
+            <p>Минимализм без пустоты: каждый акцент работает на ощущение силы и статуса.</p>
+          </article>
+
+          <article class="gallery-card reveal">
+            <span class="gallery-label">Эфир</span>
+            <h3>Живое напряжение в прямом эфире</h3>
+            <p>Эмоции, давление матча и контроль над ситуацией формируют плотную энергетику контента.</p>
+          </article>
+
+          <article class="gallery-card reveal">
+            <span class="gallery-label">Образ</span>
+            <h3>Стиль, характер и запоминаемость</h3>
+            <p>Sanlain ощущается как цельный премиальный образ, где визуал и личность говорят одним голосом.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="eyebrow" style="justify-content:center;">Присоединение</div>
+          <h2>Следи за Sanlain. Смотри сильный контент.</h2>
+          <p>
+            Если тебе близки стиль, энергия, дисциплина и атмосфера уровня выше обычного,
+            присоединяйся к сообществу и следи за эфиром, где каждая деталь держит марку.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="#top">Присоединиться</a>
+            <a class="btn btn-secondary" href="#content">Смотреть эфиры</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box glass-card reveal">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <h3>Sanlain</h3>
+            <p>
+              Темный люкс, мобильный гейминг, сильная подача и контент с характером.
+              Не просто стрим. Это присутствие, которое оставляет след.
+            </p>
+          </div>
+
+          <div class="footer-links" aria-label="Платформы и разделы">
+            <a href="#content">Прямые эфиры</a>
+            <a href="#gallery">Визуал бренда</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#cta">Сообщество</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>Sanlain — стиль, контроль, энергия.</span>
+          <span>Сильный образ. Сильный эфир.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-dot" id="scrollTopBtn" aria-label="Наверх">↑</button>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          const headerHeight = document.querySelector('.site-header').offsetHeight;
+          const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+```
